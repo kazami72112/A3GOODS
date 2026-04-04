@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A3!周邊圖鑑</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <h1 style="text-align:center; font-size:40px;">A3!周邊圖鑑</h1>
+
+  <!-- 網站須知按鈕 -->
+  <div style="text-align:center; margin:10px 0;">
+    <button id="introBtn" class="intro-btn" onclick="showIntro()">網站須知</button>
+  </div>
+
+  <!-- 篩選區 -->
+  <div id="filters" style="text-align:center; margin-bottom:20px;">
+
+    <div id="typeButtons">
+      <span class="filter-title">種類：</span>
+    </div>
+
+    <label for="seriesSelect">系列：</label>
+    <select id="seriesSelect" onchange="filterSeries(this.value)">
+      <option value="all">全部</option>
+    </select>
+
+    <div style="margin-top:10px;">
+      <label for="tagSearch">標籤搜尋：</label>
+      <input type="text" id="tagSearch" placeholder="輸入關鍵字" oninput="searchTagKeyword(this.value)">
+    </div>
+
+  </div>
+
+  <!-- 商品列表 -->
+  <div id="item-list"></div>
+
+  <!-- Modal -->
+  <div id="detailOverlay" onclick="closeDetail()"></div>
+  <div id="detail"></div>
+
+  <!-- Lightbox -->
+  <div id="lightboxOverlay" onclick="closeLightbox()">
+    <img id="lightboxImage">
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
