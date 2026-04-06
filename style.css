@@ -1,0 +1,163 @@
+/* 商品區 */
+#item-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+.card {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 15px;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+/* 前言按鈕大小 */
+.intro-btn {
+  font-size: 18px;
+  padding: 8px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* ===== 種類按鈕 ===== */
+#typeButtons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.type-group {
+  position: relative;
+  display: inline-block;
+}
+
+/* 子分類 */
+.submenu {
+  display: none;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  padding: 6px;
+  z-index: 5000;
+  white-space: nowrap;
+  display: flex;      /* 電腦/平板橫向 */
+  flex-wrap: nowrap;
+}
+
+.submenu button {
+  background-color: #e0f0ff;
+  border: 1px solid #90c8ff;
+  margin: 3px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.submenu button:hover {
+  background-color: #90c8ff;
+  color: white;
+}
+
+/* ===== Modal ===== */
+#detailOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  z-index: 9999;
+}
+
+#detail {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  z-index: 10000;
+  display: none;
+  text-align: left;
+}
+
+#detail img {
+  width: 300px;
+}
+
+.close-btn {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+}
+
+/* ===== Lightbox ===== */
+#lightboxOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 11000;
+}
+
+#lightboxOverlay img {
+  max-width: 90%;
+  max-height: 90vh;   /* ⭐ 限制高度，不會爆螢幕 */
+  object-fit: contain; /* ⭐ 保持比例，不會變形 */
+}
+
+/* ===== RWD ===== */
+/* ===== 手機版 (max-width: 600px) ===== */
+@media (max-width: 600px) {
+  /* 子分類按鈕改縱向排列 */
+  .submenu {
+    flex-direction: column;   /* 子按鈕垂直 */
+    white-space: normal;      /* 文字正常換行 */
+    align-items: stretch;     /* 每個按鈕撐滿整行 */
+  }
+
+  .submenu button {
+    width: 100%;              /* 撐滿整行 */
+    text-align: left;         /* 文字靠左 */
+    margin: 3px 0;            /* 上下間距 */
+  }
+
+  /* 商品列表保持一排三個 */
+  .card {
+    width: 30%;               /* 手機仍一排三個 */
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  .card { width: 22%; }
+  .submenu { flex-direction: row; }
+}
+
+@media (min-width: 1025px) {
+  .card { width: 15%; }
+  .submenu { flex-direction: row; }
+}
