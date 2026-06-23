@@ -201,52 +201,33 @@ body{
 }
 
 /* ===== RWD ===== */
-
-/* 手機 + 平板共用 */
-@media (max-width:1024px){
-
-  .submenu{
-    flex-direction:column;
-    white-space:normal;
-    align-items:stretch;
+/* ===== 手機版 (max-width: 600px) ===== */
+@media (max-width: 600px) {
+  /* 子分類按鈕改縱向排列 */
+  .submenu {
+    flex-direction: column;   /* 子按鈕垂直 */
+    white-space: normal;      /* 文字正常換行 */
+    align-items: stretch;     /* 每個按鈕撐滿整行 */
   }
 
-  .submenu button{
-    width:100%;
-    text-align:left;
-    margin:3px 0;
+  .submenu button {
+    width: 100%;              /* 撐滿整行 */
+    text-align: left;         /* 文字靠左 */
+    margin: 3px 0;            /* 上下間距 */
   }
 
-  .card{
-    width:45%;
+  /* 商品列表保持一排三個 */
+  .card {
+    width: 30%;               /* 手機仍一排三個 */
   }
-
-  #tagSearch{
-    width:90%;
-    max-width:350px;
-  }
-
-  #filters{
-    padding:20px;
-  }
-
-  #typeButtons{
-    gap:8px;
-  }
-
 }
 
-/* 電腦版 */
-@media (min-width:1025px){
+@media (min-width: 601px) and (max-width: 1024px) {
+  .card { width: 22%; }
+  .submenu { flex-direction: row; }
+}
 
-  .card{
-    width:15%;
-  }
-
-  .submenu{
-    flex-direction:row;
-    white-space:nowrap;
-    align-items:center;
-  }
-
+@media (min-width: 1025px) {
+  .card { width: 15%; }
+  .submenu { flex-direction: row; }
 }
