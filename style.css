@@ -201,7 +201,9 @@ body{
 }
 
 /* ===== RWD ===== */
-@media (max-width:600px){
+
+/* 手機 + 平板共用 */
+@media (max-width:1024px){
 
   .submenu{
     flex-direction:column;
@@ -221,25 +223,30 @@ body{
 
   #tagSearch{
     width:90%;
+    max-width:350px;
   }
+
+  #filters{
+    padding:20px;
+  }
+
+  #typeButtons{
+    gap:8px;
+  }
+
 }
 
-@media (min-width:601px) and (max-width:1024px){
-  .card{
-    width:22%;
-  }
-
-  .submenu{
-    flex-direction:row;
-  }
-}
-
+/* 電腦版 */
 @media (min-width:1025px){
+
   .card{
     width:15%;
   }
 
   .submenu{
     flex-direction:row;
+    white-space:nowrap;
+    align-items:center;
   }
+
 }
