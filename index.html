@@ -16,21 +16,35 @@
     <button id="introBtn" class="intro-btn" onclick="showIntro()">網站須知</button>
   </div>
 
+  <!-- ⭐ 已選 filter（電商 UI） -->
+  <div id="activeFilters"></div>
+
+  <!-- ⭐ filter 按鈕區（電商 UI） -->
+  <div id="filterButtons"></div>
+
   <!-- 篩選區 -->
   <div id="filters" style="text-align:center; margin-bottom:20px;">
 
+    <!-- 種類按鈕 -->
     <div id="typeButtons">
       <span class="filter-title">種類：</span>
     </div>
 
+    <!-- 系列 -->
     <label for="seriesSelect">系列：</label>
     <select id="seriesSelect" onchange="filterSeries(this.value)">
       <option value="all">全部</option>
     </select>
 
+    <!-- ⭐ 電商搜尋欄（已修正） -->
     <div style="margin-top:10px;">
-      <label for="tagSearch">標籤搜尋：</label>
-      <input type="text" id="tagSearch" placeholder="輸入關鍵字" oninput="searchTagKeyword(this.value)">
+      <label for="tagSearch">關鍵字查詢：</label>
+      <input
+        type="text"
+        id="tagSearch"
+        placeholder="名稱 / 標籤 / 類別"
+        oninput="searchTagKeyword(this.value)"
+      >
     </div>
 
   </div>
@@ -48,5 +62,6 @@
   </div>
 
   <script src="script.js"></script>
+
 </body>
 </html>
