@@ -95,11 +95,16 @@ function displayItems() {
       !currentFilters.length ||
       currentFilters.every(f => filters.includes(f));
 
-    const keywordMatch =
-      !currentKeyword ||
-      (item.name || "")
-        .toLowerCase()
-        .includes(currentKeyword.toLowerCase());
+    const keyword = currentKeyword.toLowerCase();
+
+const keywordMatch =
+  !currentKeyword ||
+  (item.name || "")
+    .toLowerCase()
+    .includes(keyword) ||
+  (item.tags || "")
+    .toLowerCase()
+    .includes(keyword);
 
     return (
       (currentSeries === "all" || item.series === currentSeries) &&
